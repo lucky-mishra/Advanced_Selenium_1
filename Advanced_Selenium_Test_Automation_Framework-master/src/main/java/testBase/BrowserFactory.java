@@ -39,16 +39,16 @@ public class BrowserFactory {
 			DriverFactory.getInstance().setDriver(driver);
 			driver = new ChromeDriver(options);
 
-		}else if (browser.equalsIgnoreCase("firefox")) {
+		}else if (browser.equalsIgnoreCase("grid")) {
 
 			WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions foptions = new FirefoxOptions();
 			foptions.addArguments("-private");
 			
-			//driver = new RemoteWebDriver(new URL("http:192.168.225.219:4444/wd/hub"), DesiredCapabilities.firefox());
+			driver = new RemoteWebDriver(new URL("http:localhost:4444/wd/hub"), DesiredCapabilities.chrome());
 
 			
-			driver = new FirefoxDriver(foptions);
+			//driver = new FirefoxDriver(foptions);
 
 		} if (browser.equalsIgnoreCase("ie")) {
 
