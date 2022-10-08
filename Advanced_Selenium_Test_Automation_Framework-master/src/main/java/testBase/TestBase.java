@@ -44,7 +44,7 @@ public class TestBase extends ActionEngine {
     public void tearDown() {
         DriverFactory.getInstance().closeBrowser();
     }
-
+//
     //@AfterMethod
     public void assignDevice() {
         ExtentFactory.getInstance().getExtent().assignDevice(browserName);
