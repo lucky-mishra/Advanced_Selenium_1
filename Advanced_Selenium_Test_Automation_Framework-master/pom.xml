@@ -136,7 +136,6 @@
 			<artifactId>testlink-java-api</artifactId>
 			<version>1.9.3-2</version>
 		</dependency>
-
 	</dependencies>
 
 </project>
