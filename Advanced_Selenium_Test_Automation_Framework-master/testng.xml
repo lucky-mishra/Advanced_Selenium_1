@@ -10,7 +10,7 @@
 	<test name="LoginTests">
 		<classes>
 			<class name="Tests.LoginTest" />
-			<class name="Tests.LoginTest2" />
+			<class name="Tests.ForgotPasswordTest" />
 		</classes>
 	</test> <!-- Test -->
 		<!--<test name="DataDriven Tests">
