@@ -96,33 +96,35 @@ public class RegistrationPage {
 
     public void enterFirstname(String fname) {
         firstName.sendKeys(fname);
-        //Log.info("enter first name as :" + fname);
+        ExtentFactory.getInstance().getExtent().log(INFO,"Enter first name :"+fname);
     }
 
     public void enterMiddleName(String mname) {
         middlename.sendKeys(mname);
-        //Log.info("enter middle name as :" + mname);
+        ExtentFactory.getInstance().getExtent().log(INFO,"Enter middle name :"+mname);
     }
 
     public void enterLatName(String lname) {
         lastName.sendKeys(lname);
-        //Log.info("enter last name as :" + lname);
+        ExtentFactory.getInstance().getExtent().log(INFO,"Enter last name :"+lname);
     }
 
     public void enterEmail() {
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(1000);
-        email.sendKeys("dummyEmail" + randomInt + "@gmail.com");
+        String emailId="dummyEmail" + randomInt + "@gmail.com";
+        email.sendKeys(emailId);
+        ExtentFactory.getInstance().getExtent().log(INFO,"Enter emailId :"+emailId);
     }
 
     public void enterPassword(String pwd) {
         password.sendKeys(pwd);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter password is :"+pwd);
-        //Log.info("Password is :" + pwd);
     }
 
     public void enterConfirmPassword(String cpwd) {
         passwordConfirm.sendKeys(cpwd);
+        ExtentFactory.getInstance().getExtent().log(INFO,"Enter confirm password is :"+cpwd);
     }
 
     public void selectSubscribe() {
@@ -136,16 +138,18 @@ public class RegistrationPage {
         return isSubscribe;
     }
 
-    public void registration() {
+    public void clickRegisterButton() {
         registerButton.click();
-        //Log.info("click on registration button");
+        ExtentFactory.getInstance().getExtent().log(INFO,"click on register button");
     }
 
     public void verifySuccessRegistration(String expectedText) {
         //Utility.isElementPresent(successMessage, driver);
-        String actualText = successMessage.getText();
+        //String actualText = successMessage.getText();
         //asserssion.isTextSame(expectedText, actualText);
         //Log.info("registration done");
+        successMessage.isDisplayed();
+        ExtentFactory.getInstance().getExtent().log(INFO,"Registration done");
     }
 
     public void clickMyAccount() {

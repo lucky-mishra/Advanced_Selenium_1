@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.ExtentFactory;
 
+import java.util.Random;
+
 import static com.aventstack.extentreports.Status.INFO;
 
 public class ForgotPasswordPage {
@@ -39,9 +41,13 @@ public class ForgotPasswordPage {
         ExtentFactory.getInstance().getExtent().log(INFO, "Click on forgot password link");
     }
 
-    public void enterEmail(String emailTeXt) {
-        emailId.sendKeys(emailTeXt);
-        ExtentFactory.getInstance().getExtent().log(INFO, "Enter email is :" + emailTeXt);
+    public void enterEmail() {
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(1000);
+        String email="dummyEmail" + randomInt + "@gmail.com";
+        emailId.sendKeys(email);
+        ExtentFactory.getInstance().getExtent().log(INFO,"Enter emailId :"+email);
+
     }
 
     public void clickSubmit() {

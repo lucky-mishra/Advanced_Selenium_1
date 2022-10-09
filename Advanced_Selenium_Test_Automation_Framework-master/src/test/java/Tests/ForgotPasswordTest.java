@@ -10,6 +10,7 @@ import pageObjects.LoginPage;
 import pageObjects.RegistrationPage;
 import reports.ExtentFactory;
 import reusableComponents.ExcelOperations;
+import reusableComponents.TeslinkEngine;
 import testBase.DriverFactory;
 import testBase.TestBase;
 import testlink.api.java.client.TestLinkAPIException;
@@ -71,6 +72,8 @@ public class    ForgotPasswordTest extends TestBase {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
+            TeslinkEngine.notes = "Execution failed";
             Assert.fail("Cant do login");
         }
         finally {
@@ -88,7 +91,7 @@ public class    ForgotPasswordTest extends TestBase {
             registrationPage.clickAccount();
             registrationPage.clickLoginLink();
             forgotPasswordPage.clickForgotPasswordLink();
-            forgotPasswordPage.enterEmail(testdata.get("email"));
+            forgotPasswordPage.enterEmail();
             forgotPasswordPage.clickSubmit();
             forgotPasswordPage.verifySuccessMessage(testdata.get("email"));
             result = TestLinkAPIResults.TEST_PASSED;
@@ -96,6 +99,8 @@ public class    ForgotPasswordTest extends TestBase {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
+            TeslinkEngine.notes = "Execution failed";
             Assert.fail("Cant do login");
         }
         finally {
